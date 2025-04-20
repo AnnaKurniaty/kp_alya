@@ -1,0 +1,19 @@
+body {
+    background-image: url('images/Background/bg100.jpg'); /* Ganti dengan path gambar Anda */
+    background-size: cover; /* Mengatur ukuran gambar agar menutupi seluruh layar */
+    background-repeat: no-repeat; /* Tidak mengulang gambar */
+    background-position: center; /* Posisi gambar di tengah */
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9); /* Warna putih dengan transparansi 80% */
+    padding: 20px;
+    border-radius: 10px; /* Membuat tepi form menjadi melengkung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Menambahkan efek bayangan */
+    max-width: 400px;
+    margin: 100px auto; /* Agar form berada di tengah layar */
+}
+ 
+button {
+	width: 49%;
+}
