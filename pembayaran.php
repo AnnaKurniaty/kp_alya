@@ -104,6 +104,9 @@ if ($is_member) {
             </tr>
           </table>
 
+          <?php
+            $_SESSION['total_setelah_diskon'] = $total_setelah_diskon;
+          ?>
           <form action="proses_pembayaran.php" method="POST">
             <div class="form-group">
               <label for="metode_pembayaran">Pilih Metode Pembayaran:</label>
