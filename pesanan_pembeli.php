@@ -125,7 +125,7 @@ include('koneksi.php');
         }      
     
         // Menyimpan data ke tabel pemesanan
-        $insert = mysqli_query($koneksi, "INSERT INTO pemesanan (tanggal_pemesanan, total_belanja, metode_pembayaran) VALUES ('$tanggal_pemesanan', '$totalbelanja', '$metode_pembayaran')");
+        $insert = mysqli_query($koneksi, "INSERT INTO pemesanan (tanggal_pemesanan, total_belanja, metode_pembayaran, id_user) VALUES ('$tanggal_pemesanan', '$totalbelanja', '$metode_pembayaran', '2')");
     
         // Mendapatkan ID barusan
         $id_terbaru = $koneksi->insert_id;
