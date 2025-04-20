@@ -78,7 +78,7 @@ session_start();
           <th scope="col">No</th>
           <th scope="col">Nama Pesanan</th>
           <th scope="col">Harga</th>
-          <th scope="col">Jumlah</th>
+          <th scope="col">Jumlah (Kg)</th>
           <th scope="col">Subharga</th>
           <th scope="col">Opsi</th>
         </tr>
