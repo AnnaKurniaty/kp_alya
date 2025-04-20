@@ -33,13 +33,23 @@ $diskon = 0;
 $total_setelah_diskon = $total_belanja;
 
 if ($is_member) {
-    if ($total_belanja > 50000) {
-        $diskon = $total_belanja * 0.10; // 10%
-    } else {
-        $diskon = $total_belanja * 0.04; // 4%
-    }
-    $total_setelah_diskon = $total_belanja - $diskon;
+  if ($total_belanja >= 50000) {
+      $diskon = $total_belanja * 0.10;
+  } else {
+      $diskon = $total_belanja * 0.04;
+  }
+
+  // Pembulatan diskon custom
+  $puluhan = $diskon % 100;
+  if ($puluhan <= 40) {
+      $diskon = $diskon - $puluhan;
+  } else {
+      $diskon = $diskon + (100 - $puluhan);
+  }
+
+  $total_setelah_diskon = $total_belanja - $diskon;
 }
+
 ?>
 
 <!doctype html>
