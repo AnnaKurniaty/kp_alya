@@ -10,12 +10,11 @@ $jenis_kelamin=$_POST["jenis_kelamin"];
 $tanggal_lahir=$_POST["tanggal_lahir"];
 $alamat=$_POST["alamat"];
 $hp=$_POST["hp"];
-$status=$_POST["status"];
 
 
 
 //Menginput data ke tabel
-  $hasil=mysqli_query($koneksi, "INSERT INTO user (username,password,nama_lengkap,jenis_kelamin,tanggal_lahir,alamat,hp,status) VALUES('$username','$password','$nama_lengkap','$jenis_kelamin','$tanggal_lahir','$alamat','$hp','$status')");
+  $hasil=mysqli_query($koneksi, "INSERT INTO user (username,password,nama_lengkap,jenis_kelamin,tanggal_lahir,alamat,hp,status) VALUES('$username','$password','$nama_lengkap','$jenis_kelamin','$tanggal_lahir','$alamat','$hp','member')");
 
 //Kondisi apakah berhasil atau tidak
   if ($hasil) 

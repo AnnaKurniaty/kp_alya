@@ -61,12 +61,18 @@ include 'koneksi.php';
             </div>
             <input type="password" id="password" class="form-control" placeholder="Masukkan Password" name="password" required autocomplete="off">
         </div>
-        <small class="form-text text-muted">Note : "Pelangan tidak perlu mengisi username dan password"</small>
+        <small class="form-text text-muted">Belum memiliki akun? <a href="register.php">Register</a></small>
     </div>
+    <!-- UNUSED FOR TEMPORARY -->
     <!-- Tombol untuk login sebagai admin -->
-    <button type="submit" name="submit_admin" class="btn btn-primary w-100">LOGIN AS ADMIN</button>
+    <!-- <button type="submit" name="submit_admin" class="btn btn-primary w-100">LOGIN AS ADMIN</button> -->
     <!-- Tombol untuk login sebagai user -->
-    <button type="submit" name="submit_user" class="btn btn-success w-100 mt-2">LOGIN AS PELANGAN</button>
+    <!-- <button type="submit" name="submit_user" class="btn btn-success w-100 mt-2">LOGIN AS PELANGAN</button> -->
+    
+    <!-- <button type="submit" name="submit_admin" class="btn btn-primary w-100">LOGIN AS ADMIN</button> -->
+    <!-- END UNUSED FOR TEMPORARY -->
+     
+    <button type="submit" name="submit" class="btn btn-primary w-100">LOGIN</button>
 </form>
 
 </div>
@@ -76,34 +82,35 @@ include 'koneksi.php';
   <?php 
 include 'koneksi.php';
 
-if (isset($_POST['submit_admin']) || isset($_POST['submit_user'])) {
+if (isset($_POST['submit'])) {
     $user = $_POST['username'];
     $password = $_POST['password'];
 
     // Cek jika tombol login sebagai user
-    if (isset($_POST['submit_user'])) {
-        session_start();
-        $_SESSION['login_user'] = "user"; // Simulasi login sebagai user
-        header('location: user.php'); // Langsung ke halaman user
-    }
+    // if (isset($_POST['submit_user'])) {
+    //     session_start();
+    //     $_SESSION['login_user'] = "user"; // Simulasi login sebagai user
+    //     header('location: guest.php'); // Langsung ke halaman user
+    // }
     // Query untuk memilih tabel
-    else {
+    // else {
         $cek_data = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$user' AND password = '$password'");
         $hasil = mysqli_fetch_array($cek_data);
         $status = $hasil['status'];
-        $login_user = $hasil['username'];
+        $id_user = $hasil['id_user'];
         $row = mysqli_num_rows($cek_data);
 
         // Pengecekan Kondisi Login Berhasil/Tidak
         if ($row > 0) {
             session_start();   
-            $_SESSION['login_user'] = $login_user;
-
+            
             // Cek jika tombol login sebagai admin
-            if (isset($_POST['submit_admin']) && $status == 'admin') {
+            if (isset($_POST['submit']) && $status == 'admin') {
+                $_SESSION['login_admin'] = $id_user;
                 header('location: admin.php');
-            } elseif (isset($_POST['submit_user']) && $status == 'user') {
-                header('location: user.php');
+            } elseif (isset($_POST['submit']) && $status == 'member') {
+                $_SESSION['login_member'] = $id_user;
+                header('location: guest.php');
             } else {
                 // Jika status tidak cocok
                 echo "<script>alert('Login gagal, periksa kembali status pengguna.');</script>";
@@ -111,7 +118,7 @@ if (isset($_POST['submit_admin']) || isset($_POST['submit_user'])) {
         } else {
             header("location: login.php");
         }
-    }
+    // }
 }
 ?>
   <!-- Akhir Eksekusi Form Login -->

@@ -1,9 +1,4 @@
-<?php  
-    session_start();
-      if(!isset($_SESSION['login_user'])) {
-        header("location: login.php");
-      }else{
-?>
+<?php session_start(); ?>
 
 <!doctype html>
 <html lang="en">
@@ -31,7 +26,7 @@
   <!-- Navbar -->
       <nav class="navbar navbar-expand-lg  bg-dark">
         <div class="container">
-        <a class="navbar-brand text-white" href="user.php"><strong>Marinasi</strong> Ikan Nila</a>
+        <a class="navbar-brand text-white" href="guest.php"><strong>Marinasi</strong> Ikan Nila</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,7 +34,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link mr-4" href="user.php">HOME</a>
+              <a class="nav-link mr-4" href="guest.php">HOME</a>
             </li>
             <li class="nav-item">
               <a class="nav-link mr-4" href="menu_pembeli.php">DAFTAR MENU</a>
@@ -50,9 +45,16 @@
             <li class="nav-item">
               <a class="nav-link mr-4" href="tabel_pemesanan.php">TABEL PEMESANAN</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link mr-4" href="logout.php">LOGOUT</a>
-            </li>
+            <?php 
+            if (isset($_SESSION['login_member'])) { ?>
+              <li class="nav-item">
+                <a class="nav-link mr-4" href="logout.php">LOGOUT</a>
+              </li>
+            <?php } else { ?>
+              <li class="nav-item">
+                <a class="nav-link mr-4" href="login.php">LOGIN</a>
+              </li>
+            <?php } ?>
           </ul>
         </div>
        </div> 
@@ -123,4 +125,3 @@
     <script type="text/javascript" src="js/jquery.js"></script>
   </body>
 </html>
-<?php } ?>

@@ -70,6 +70,12 @@ if ($is_member) {
               <th>ID Pemesanan</th> 
               <td><?php echo $pemesanan['id_pemesanan']; ?></td>
             </tr>
+            <?php if ($is_member): ?>
+              <tr>
+                <th>Pesanan Atas Nama</th>
+                <td><?php echo ($user['nama_lengkap']); ?></td>
+              </tr>
+            <?php endif; ?>
             <tr>
               <th>Tanggal Pemesanan</th>
               <td><?php echo $pemesanan['tanggal_pemesanan']; ?></td>
@@ -79,14 +85,14 @@ if ($is_member) {
               <td>Rp. <?php echo number_format($total_belanja); ?></td>
             </tr>
             <?php if ($is_member): ?>
-            <tr>
-              <th>Diskon Member</th>
-              <td>Rp. <?php echo number_format($diskon); ?></td>
-            </tr>
-            <tr>
-              <th>Total Setelah Diskon</th>
-              <td><strong>Rp. <?php echo number_format($total_setelah_diskon); ?></strong></td>
-            </tr>
+              <tr>
+                <th>Diskon Member</th>
+                <td>Rp. <?php echo number_format($diskon); ?></td>
+              </tr>
+              <tr>
+                <th>Total Setelah Diskon</th>
+                <td><strong>Rp. <?php echo number_format($total_setelah_diskon); ?></strong></td>
+              </tr>
             <?php endif; ?>
             <tr>
               <th>Status Bungkus</th>

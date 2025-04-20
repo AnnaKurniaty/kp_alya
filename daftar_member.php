@@ -1,6 +1,9 @@
 <?php 
     include('koneksi.php');
     session_start();
+      if(!isset($_SESSION['login_admin'])) {
+        header("location: login.php");
+      }else{
 ?>
 
 <!doctype html>
@@ -36,6 +39,9 @@
               <a class="nav-link mr-4" href="admin.php">HOME</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link mr-4" href="daftar_member.php">KELOLA MEMBER</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link mr-4" href="daftar_menu.php">DAFTAR MENU</a>
             </li>
             <li class="nav-item">
@@ -53,19 +59,17 @@
   <!-- Menu -->
   <div class="container">
     <div class="judul-pesanan mt-5">
-      <h3 class="text-center font-weight-bold">DATA PESANAN PELANGGAN</h3>
+      <h3 class="text-center font-weight-bold">KELOLA DATA PELANGGAN</h3>
     </div>
-    <table class="table table-bordered" id="example">
+    <table class="table table-bordered" id="kelola_member">
       <thead class="thead-light">
         <tr>
-          <th>No.</th>
-          <th>ID Pemesanan</th>
-          <th>Nama Pesanan</th>
-          <th>Harga</th>
-          <th>Jumlah</th>
-          <th>Status Pembayaran</th>
-          <th>Status Bungkus</th>
-          <th>Subharga</th>
+          <th>Nama</th>
+          <th>Alamat</th>
+          <th>Username</th>
+          <th>Jenis Kelamin</th>
+          <th>Tanggal Lahir</th>
+          <th>No Telepon</th>
         </tr>
       </thead>
       <tbody>
@@ -167,8 +171,9 @@ if (isset($_POST["bayar"])) {
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
     <script>
       $(document).ready(function() {
-          $('#example').DataTable();
+          $('#kelola_member').DataTable();
       } );
     </script>
   </body>
 </html>
+<?php } ?>

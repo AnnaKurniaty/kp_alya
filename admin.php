@@ -1,6 +1,6 @@
 <?php 
     session_start();
-      if(!isset($_SESSION['login_user'])) {
+      if(!isset($_SESSION['login_admin'])) {
         header("location: login.php");
       }else{
 ?>
@@ -38,6 +38,9 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link mr-4" href="admin.php">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mr-4" href="daftar_member.php">KELOLA MEMBER</a>
             </li>
             <li class="nav-item">
               <a class="nav-link mr-4" href="daftar_menu.php">DAFTAR MENU</a>
