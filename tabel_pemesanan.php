@@ -43,11 +43,11 @@
           <li class="nav-item">
             <a class="nav-link mr-4" href="pesanan_pembeli.php">PESANAN ANDA</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link mr-4" href="tabel_pemesanan.php">TABEL PEMESANAN</a>
-          </li>
           <?php
           if (isset($_SESSION['login_member'])) { ?>
+            <li class="nav-item">
+              <a class="nav-link mr-4" href="tabel_pemesanan.php">TABEL PEMESANAN</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link mr-4" href="logout.php">LOGOUT</a>
             </li>

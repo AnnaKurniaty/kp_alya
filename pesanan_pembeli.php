@@ -46,11 +46,11 @@ session_start();
           <li class="nav-item">
             <a class="nav-link mr-4" href="pesanan_pembeli.php">PESANAN ANDA</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link mr-4" href="tabel_pemesanan.php">TABEL PEMESANAN</a>
-          </li>
           <?php
           if (isset($_SESSION['login_member'])) { ?>
+            <li class="nav-item">
+              <a class="nav-link mr-4" href="tabel_pemesanan.php">TABEL PEMESANAN</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link mr-4" href="logout.php">LOGOUT</a>
             </li>
@@ -128,10 +128,7 @@ session_start();
     <?php
     if (isset($_POST['confirm'])) {
       $tanggal_pemesanan = date("Y-m-d");
-      $user_id = 0;
-
-      if (isset($_SESSION['login_member']))
-        $user_id = $_SESSION['login_member'];
+      $user_id = isset($_SESSION['login_member']) ? $_SESSION['login_member'] : "NULL";
 
       if (empty($_SESSION["pesanan"])) {
         echo "<script>alert('Pesanan harus diisi sebelum melakukan konfirmasi!');</script>";
@@ -140,7 +137,7 @@ session_start();
       }
 
       // Menyimpan data ke tabel pemesanan
-      $insert = mysqli_query($koneksi, "INSERT INTO pemesanan (tanggal_pemesanan, total_belanja, metode_pembayaran, id_user) VALUES ('$tanggal_pemesanan', '$totalbelanja', '', '$user_id')");
+      $insert = mysqli_query($koneksi, "INSERT INTO pemesanan (tanggal_pemesanan, total_belanja, metode_pembayaran, id_user) VALUES ('$tanggal_pemesanan', '$totalbelanja', '', $user_id)");
 
       // Mendapatkan ID barusan
       $id_terbaru = $koneksi->insert_id;
