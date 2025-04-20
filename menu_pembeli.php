@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Marinasi Ikan Nila Jamila</title>
+    <title>Ikan Segar Jamila</title>
 
     <!-- Bootstrap & CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -18,7 +18,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container">
-      <a class="navbar-brand text-white" href="guest.php"><strong>Marinasi</strong> Ikan Nila</a>
+      <a class="navbar-brand text-white" href="guest.php"><strong>Ikan Segar</strong> Jamila</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -89,7 +89,7 @@
           <a href="#"><img src="images/icon/fb.png" class="mr-3 ml-4" data-toggle="tooltip" title="Facebook"></a>
           <a href="#"><img src="images/icon/ig.png" class="mr-3" data-toggle="tooltip" title="Instagram"></a>
           <a href="#"><img src="images/icon/twitter.png" class="mr-3" data-toggle="tooltip" title="Twitter"></a>
-          <a href="https://wa.me/6283863563355?text=Halo%20saya%20ingin%20bertanya%20tentang%20Marinasi%20Ikan%20Nila" target="_blank">
+          <a href="https://wa.me/6283863563355?text=Halo%20saya%20ingin%20bertanya%20tentang%20Ikan Segar%20Ikan%20Nila" target="_blank">
             <img src="images/icon/whatsapp.png" class="mr-3" data-toggle="tooltip" title="WhatsApp"></a>
         </div>
       </div>

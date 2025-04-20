@@ -18,7 +18,7 @@ if (!isset($_SESSION['login_admin'])) {
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
-    <title>Marinasi Ikan Nila</title>
+    <title>Ikan Segar Jamila</title>
   </head>
 
   <body>
@@ -28,7 +28,7 @@ if (!isset($_SESSION['login_admin'])) {
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg  bg-dark">
       <div class="container">
-        <a class="navbar-brand text-white" href="admin.php"><strong>Marinasi</strong> Ikan Nila </a>
+        <a class="navbar-brand text-white" href="admin.php"><strong>Ikan Segar</strong> Jamila </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -109,7 +109,7 @@ if (!isset($_SESSION['login_admin'])) {
             <a href="#"><img src="images/icon/fb.png" class="mr-3 ml-4" data-toggle="tooltip" title="Facebook"></a>
             <a href="#"><img src="images/icon/ig.png" class="mr-3" data-toggle="tooltip" title="Instagram"></a>
             <a href="#"><img src="images/icon/twitter.png" class="mr-3" data-toggle="tooltip" title="Twitter"></a>
-            <a href="https://wa.me/6283863563355?text=Halo%20saya%20ingin%20bertanya%20tentang%20Marinasi%20Ikan%20Nila" target="_blank">
+            <a href="https://wa.me/6283863563355?text=Halo%20saya%20ingin%20bertanya%20tentang%20Ikan Segar%20Ikan%20Nila" target="_blank">
               <img src="images/icon/whatsapp.png" class="mr-3" data-toggle="tooltip" title="WhatsApp"></a>
           </div>
         </div>

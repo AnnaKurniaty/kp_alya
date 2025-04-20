@@ -24,7 +24,7 @@ if(!isset($_SESSION['login_user'])) {
 <body>
 <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container">
-        <a class="navbar-brand text-white" href="guest.php"><strong>Marinasi</strong> Ikan Nila</a>
+        <a class="navbar-brand text-white" href="guest.php"><strong>Ikan Segar</strong> Jamila</a>
     </div>
 </nav>
 

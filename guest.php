@@ -14,7 +14,7 @@
   <link rel="stylesheet" type="text/css" href="index.css">
   <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
 
-  <title>Marinasi Ikan Nila Jamila</title>
+  <title>Ikan Segar Jamila</title>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg  bg-dark">
     <div class="container">
-      <a class="navbar-brand text-white" href="guest.php"><strong>Marinasi</strong> Ikan Nila</a>
+      <a class="navbar-brand text-white" href="guest.php"><strong>Ikan Segar</strong> Jamila</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -66,7 +66,7 @@
   <!-- Menu -->
   <div class="container">
     <div class="judul text-center mt-5">
-      <h3 class="font-weight-bold">MARINASI IKAN NILA</h3>
+      <h3 class="font-weight-bold">Ikan Segar Jamila</h3>
       <h5>Jl, stasiun Ciganea, Desa Mekargalih
         <br>Buka Jam <strong>07:00 - 16:00</strong>
       </h5>
@@ -110,7 +110,7 @@
           <a href="#"><img src="images/icon/fb.png" class="mr-3 ml-4" data-toggle="tooltip" title="Facebook"></a>
           <a href="#"><img src="images/icon/ig.png" class="mr-3" data-toggle="tooltip" title="Instagram"></a>
           <a href="#"><img src="images/icon/twitter.png" class="mr-3" data-toggle="tooltip" title="Twitter"></a>
-          <a href="https://wa.me/6283863563355?text=Halo%20saya%20ingin%20bertanya%20tentang%20Marinasi%20Ikan%20Nila" target="_blank">
+          <a href="https://wa.me/6283863563355?text=Halo%20saya%20ingin%20bertanya%20tentang%20Ikan Segar%20Ikan%20Nila" target="_blank">
             <img src="images/icon/whatsapp.png" class="mr-3" data-toggle="tooltip" title="WhatsApp"></a>
         </div>
       </div>
