@@ -9,18 +9,34 @@ if (!isset($_SESSION['id_pemesanan'])) {
 }
 
 $id_pemesanan = $_SESSION['id_pemesanan'];
-$username = $_SESSION['login_user'];
 
-// Ambil data user
-$user_query = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username'");
-$user = mysqli_fetch_assoc($user_query);
-$is_member = isset($user['status']) && $user['status'] == 'member';
+$query_pemesanan = mysqli_query($koneksi, "
+    SELECT * FROM pemesanan WHERE id_pemesanan = '$id_pemesanan'
+");
+$pemesanan = mysqli_fetch_assoc($query_pemesanan);
 
-// Mengambil data pemesanan
-$query = mysqli_query($koneksi, "SELECT * FROM pemesanan WHERE id_pemesanan='$id_pemesanan'");
-$pemesanan = mysqli_fetch_assoc($query);
+$id_pemesanan_produk = $pemesanan['id_pemesanan_produk'];
 
-// Hitung diskon jika member
+$is_member = false;
+
+$query_produk = mysqli_query($koneksi, "
+    SELECT * FROM pemesanan_produk WHERE id_pemesanan_produk = '$id_pemesanan_produk'
+");
+$produk = mysqli_fetch_assoc($query_produk);
+
+if (!empty($produk['id_user'])) {
+    $id_user = $produk['id_user'];
+
+    $query_user = mysqli_query($koneksi, "
+        SELECT status FROM user WHERE id_user = '$id_user'
+    ");
+    $user = mysqli_fetch_assoc($query_user);
+
+    if (isset($user['status']) && $user['status'] == 'member') {
+        $is_member = true;
+    }
+}
+
 $total_belanja = $pemesanan['total_belanja'];
 $diskon = 0;
 $total_akhir = $total_belanja;
