@@ -1,11 +1,6 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['login_user'])) {
-    header("location: login.php");
-    exit();
-}
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include('koneksi.php');
 

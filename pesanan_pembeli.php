@@ -1,9 +1,6 @@
 <?php  
-include('koneksi.php');
-    session_start();
-      if(!isset($_SESSION['login_user'])) {
-        header("location: login.php");
-      }else{
+  include('koneksi.php');
+  session_start();
 ?>
 
 <!doctype html>
@@ -50,9 +47,16 @@ include('koneksi.php');
             <li class="nav-item">
               <a class="nav-link mr-4" href="tabel_pemesanan.php">TABEL PEMESANAN</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link mr-4" href="logout.php">LOGOUT</a>
-            </li>
+            <?php 
+            if (isset($_SESSION['login_member'])) { ?>
+              <li class="nav-item">
+                <a class="nav-link mr-4" href="logout.php">LOGOUT</a>
+              </li>
+            <?php } else { ?>
+              <li class="nav-item">
+                <a class="nav-link mr-4" href="login.php">LOGIN</a>
+              </li>
+            <?php } ?>
           </ul>
         </div>
        </div> 
@@ -80,7 +84,10 @@ include('koneksi.php');
         <tbody>
             <?php $nomor=1; ?>
             <?php $totalbelanja = 0; ?>
-            <?php foreach ($_SESSION["pesanan"] as $id_menu => $jumlah) : ?>
+            <?php 
+              if(isset($_SESSION['pesanan'])){
+                foreach ($_SESSION["pesanan"] as $id_menu => $jumlah) : 
+            ?>
 
             <?php 
               include('koneksi.php');
@@ -101,6 +108,7 @@ include('koneksi.php');
             <?php $nomor++; ?>
             <?php $totalbelanja+=$subharga; ?>
             <?php endforeach ?>
+            <?php } ?>
         </tbody>
         <tfoot>
           <tr>
@@ -112,12 +120,17 @@ include('koneksi.php');
       <form method="POST" action="">
         <a href="menu_pembeli.php" class="btn btn-primary btn-sm">Lihat Menu</a>
         <a href="https://wa.me/6283863563355" class="btn btn-success btn-sm" target="_blank">Pesan Lewat WhatsApp</a>
-        <button class="btn btn-success btn-sm" name="konfirm">Konfirmasi Pesanan</button>
+        <button class="btn btn-success btn-sm" name="confirm">Konfirmasi Pesanan</button>
       </form>        
 
       <?php 
-      if(isset($_POST['konfirm'])) {
+      if(isset($_POST['confirm'])) {
         $tanggal_pemesanan = date("Y-m-d");
+        $user_id = '';
+
+        if (isset($_SESSION['login_member']))
+          $user_id = $_SESSION['login_member'];
+
         if(empty($_SESSION["pesanan"])) {
           echo "<script>alert('Pesanan harus diisi sebelum melakukan konfirmasi!');</script>";
           echo "<script>location='menu_pembeli.php';</script>";
@@ -125,7 +138,7 @@ include('koneksi.php');
         }      
     
         // Menyimpan data ke tabel pemesanan
-        $insert = mysqli_query($koneksi, "INSERT INTO pemesanan (tanggal_pemesanan, total_belanja, metode_pembayaran, id_user) VALUES ('$tanggal_pemesanan', '$totalbelanja', '$metode_pembayaran', '2')");
+        $insert = mysqli_query($koneksi, "INSERT INTO pemesanan (tanggal_pemesanan, total_belanja, metode_pembayaran, id_user) VALUES ('$tanggal_pemesanan', '$totalbelanja', '$metode_pembayaran', '$user_id'");
     
         // Mendapatkan ID barusan
         $id_terbaru = $koneksi->insert_id;
@@ -196,4 +209,3 @@ include('koneksi.php');
     </script>
   </body>
 </html>
-<?php } ?>

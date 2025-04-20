@@ -1,11 +1,6 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['login_user'])) {
-    header("location: login.php");
-    exit();
-}
-
 if (!isset($_SESSION['id_pemesanan']) || !isset($_SESSION['metode_pembayaran'])) {
     echo "<script>alert('Tidak ada data pembayaran yang ditemukan.');</script>";
     echo "<script>location='menu_pembeli.php'</script>";

@@ -10,7 +10,6 @@ $jenis_kelamin=$_POST["jenis_kelamin"];
 $tanggal_lahir=$_POST["tanggal_lahir"];
 $alamat=$_POST["alamat"];
 $hp=$_POST["hp"];
-$status=$_POST["status"];
 
 
 
